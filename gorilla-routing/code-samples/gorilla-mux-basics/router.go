@@ -37,6 +37,8 @@ func main() {
 		fmt.Fprintf(w, "This route matches all requests.")
 	})
 
+	//A Gorilla mux Router is a Handler so we can use it as our Server's
+	//main Handler.
 	server := &http.Server{
 		Addr:    ":1123",
 		Handler: m,
