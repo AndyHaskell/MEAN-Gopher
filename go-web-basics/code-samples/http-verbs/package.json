@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "express":"4.12.4",
+    "body-parser":"1.13.1",
+    "html-escape":"1.0.2"
+  }
+}
