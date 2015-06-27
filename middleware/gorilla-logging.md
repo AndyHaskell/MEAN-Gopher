@@ -9,7 +9,7 @@ To get the package run `go get github.com/gorilla/handlers`.
 ```javascript
 var app = express()
 
-app.use(morgan('combined'))
+app.use(morgan('common'))
 
 app.get('*', function(req, res){
   res.send('Sloths rule!')
