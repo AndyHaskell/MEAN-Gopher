@@ -163,6 +163,11 @@ That central handler function calling other `Handler`s' `ServeHTTP` methods is a
 
 In Go `net/http` at the time I am writing this, there isn't any built-in way to restrict a route to only certain HTTP methods. Luckily, if you want something more sleek like what you get Express, there are a ton of HTTP routing packages in the Go community. Here are a couple examples for the `/coffee-shop` route with Gorilla mux and Goji.
 
+You can `go get` these packages with by running:
+
+* `go get github.com/gorilla/mux`
+* `go get github.com/zenazn/goji`
+
 ### Our handler functions
 
 ```go
