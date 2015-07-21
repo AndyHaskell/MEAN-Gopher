@@ -16,7 +16,7 @@ app.get('/sloths', function(req, res){
 http.createServer(app).listen(1123)
 ```
 ### In Gorilla:
-To create a Gorilla mux router, you use `mux.NewRouter`. Like with `net/http`, you can register a route to a `Handler` or handler function with `Router.Handle` and `Router.HandleFunc`.
+To create a Gorilla mux router, you use `mux.NewRouter`. Like with `net/http`, you can register a route to a `Handler` or handler function with the `Router`'s `Handle` and `HandleFunc` methods.
 ```go
 m := mux.NewRouter()
 m.HandleFunc("/sloths", func(w http.ResponseWriter, r *http.Request){
@@ -39,13 +39,13 @@ serveMux.Handle("/img/", http.StripPrefix("/img/",
 ```
 
 ### With a Gorilla mux Router:
-Unlike in a `ServeMux`, in a Gorilla mux router, plain paths ending in a slash **only match themselves**, so to use a path as a prefix, you instead use `Router.PathPrefix`.
+Unlike in a `ServeMux`, **in a Gorilla mux router, plain paths ending in a slash only match themselves**, so to use a path as a prefix, you instead use your `Router`'s `PathPrefix` method.
 ```
 m.PathPrefix("/img/").Handler(
     http.StripPrefix("/img/", http.FileServer(http.Dir("public/images"))))
 ```
 
-`Router.PathPrefix` makes a new Gorilla mux `Route`, which you can then give a Handler to with `Route.Handler` or a HandlerFunc with `Route.HandlerFunc`.
+`PathPrefix` makes a new Gorilla mux `Route`, which you can then give a Handler to with the `Route`s `Handler` method or a HandlerFunc with its `HandlerFunc` method.
 
 Because of this Gorilla routing rule, you would also do `PathPrefix` for a catch-all route in Gorilla.
 
