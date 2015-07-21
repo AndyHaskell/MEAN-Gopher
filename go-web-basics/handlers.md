@@ -46,7 +46,7 @@ func main() {
 }
 ```
 
-A `Handler` is registered to a `ServeMux`'s route with `ServeMux.Handle`, similar to how a handler function is registered with `ServeMux.HandleFunc`.
+A `Handler` is registered to a `ServeMux`'s route with its `Handle` method, similar to how a handler function is registered with a its `HandleFunc` method.
 
 Requests to this server are handled by `counter`, which increments itself and then sends a response saying how many hits the server has gotten.
 
@@ -64,7 +64,7 @@ slothsRuleHandler := http.HandlerFunc(slothsRule)
 mux.Handle("/sloths", slothsRuleHandler)
 ```
 
-Indeed, this is exactly how `ServeMux.HandleFunc` works; it calls:
+Indeed, this is exactly how a `ServeMux`'s `HandleFunc` method works; it calls:
 
 `yourServeMux.Handle(pattern, HandlerFunc(yourHandlerFunction))`,
 
