@@ -62,11 +62,11 @@ app.use('/', youreNo1000000, serveHitNumber)
 
 ```go
 //A simple chain of Goji handler functions
-func youreNo1000000(c *web.C, w http.ResponseWriter, r *http.Request){
+func youreNo1000000(c web.C, w http.ResponseWriter, r *http.Request){
     c.Env["hitNumber"] = 1000000
     serveHitNumber(c, w, r)
 }
-func serveHitNumber(c *web.C, w http.ResponseWriter, r *http.Request){
+func serveHitNumber(c web.C, w http.ResponseWriter, r *http.Request){
     hitNumber := c.Env["hitNumber"]
     fmt.Fprintf(w, "You're totally viewer number %d!", hitNumber)
 }
@@ -76,7 +76,7 @@ func main(){
     
     //Initialize a request context's Env and make the route
     m.Use(middleware.EnvInit)
-    m.Handle("/", youreNo100000)
+    m.Handle("/", youreNo1000000)
 }
 ```
 
@@ -104,7 +104,7 @@ In Goji, you use the same Sinatra-like :routeParameter syntax you would use in E
 ## Path prefixes
 ### An image server route in Express
 ```javascript
-app.use('/img/*', express.static(__dirname+'/public/images'))
+app.use('/img', express.static(__dirname+'/public/images'))
 ```
 
 ### In net/http
