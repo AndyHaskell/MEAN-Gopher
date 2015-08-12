@@ -47,8 +47,9 @@ And Goji methods that can create routes in `net/http` `Handler`s can also take i
 ### Adding request context values in Express
 
 ```javascript
-var youreNo1000000 = function(req, res){
+var youreNo1000000 = function(req, res, next){
   req.hitNumber = 1000000
+  next()
 }
 var serveHitNumber = function(req, res){
   res.send('You are totally viewer number ' + req.hitNumber + '!')
