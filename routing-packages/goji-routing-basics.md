@@ -80,7 +80,7 @@ func main(){
 }
 ```
 
-A Goji `C` stores variables in a map called `c.Env`. To use its `Env` **your Goji `Mux` must import `"github.com/zenazn/goji/web/middleware"` and have the middleware `middleware.EnvInit` in the `Mux`**.
+A Goji `C` stores variables in a map called `c.Env`. To use its `Env` **you must import `"github.com/zenazn/goji/web/middleware"` and give your Goji `mux` the middleware `middleware.EnvInit`.**
 
 ## Route parameters
 ### In Express
