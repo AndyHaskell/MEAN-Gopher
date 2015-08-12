@@ -96,7 +96,7 @@ app.use('/:flavor/tea', function(req, res){
 ```go
 m.Handle("/:flavor/tea", func(c web.C, w http.ResponseWriter, r *http.Request){
     flavor := c.URLParams["flavor"]
-    fmt.Fprintf(w, "I could go for some %q tea!", flavor)
+    fmt.Fprintf(w, "I could go for some %s tea!", flavor)
 })
 ```
 In Goji, you use the same Sinatra-like :routeParameter syntax you would use in Express. To fetch the parameters from the route, a Goji `C` contains a `URLParams` map.
